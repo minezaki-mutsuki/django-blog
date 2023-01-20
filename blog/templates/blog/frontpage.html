@@ -2,5 +2,6 @@
 <h2 class="frontpage">{{post.title}}</h2>
 <time class="date">{{post.posted_date}}</time>
 <p class="intro">{{post.intro}}</p>
+<a href="{% url 'post_detail' post.slug %}" class="button">詳細</a>
 <hr />
 {% endfor %} {% endblock %}
