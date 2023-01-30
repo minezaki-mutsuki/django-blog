@@ -3,4 +3,22 @@
 <time class="post_detail_time">{{post.posted_date}}</time>
 <p class="post_detail_intro">{{post.intro}}</p>
 <p class="post_detail_body">{{post.body}}</p>
+<hr />
+<h2>コメント一覧</h2>
+{% for comment in post.comments.all %}
+<div class="background">
+<h5>{{comment.name}}</p>
+<p>{{comment.body}}</p>
+<p>{{comment.posted_date}}</p>
+</div>
+{% endfor %}
+<hr />
+<h2 class="post_detail_comment">コメント投稿</h2>
+<form action="." method="post">
+  {% csrf_token %} {{form.as_p}}
+  <div>
+    <button class="comment_button">送信</button>
+  </div>
+</form>
+<a href="/">戻る</a>
 {% endblock %}
